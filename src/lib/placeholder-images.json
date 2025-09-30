@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "yinsh-hero",
+      "description": "A stylish, abstract representation of the Yinsh game board and pieces, with a dark and sleek aesthetic.",
+      "imageUrl": "https://images.unsplash.com/photo-1707858951210-1f3ae473606b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhYnN0cmFjdCUyMGdhbWV8ZW58MHx8fHwxNzU5MTg1Nzg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract game"
+    },
+    {
+      "id": "yinsh-board",
+      "description": "An image of a Yinsh game in progress, showing the board and pieces.",
+      "imageUrl": "https://images.unsplash.com/photo-1611891487122-207579d67d98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxib2FyZCUyMGdhbWV8ZW58MHx8fHwxNzU5MDk4NDYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "board game"
+    },
+    {
+      "id": "yinsh-pieces",
+      "description": "A close-up of the black and white Yinsh game pieces.",
+      "imageUrl": "https://images.unsplash.com/photo-1707858950720-85e9e2e78080?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnYW1lJTIwcGllY2VzfGVufDB8fHx8MTc1OTIxMDIyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "game pieces"
+    }
+  ]
 }
