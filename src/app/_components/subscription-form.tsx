@@ -9,7 +9,8 @@ import { useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { subscribeToNewsletter, type SubscriptionResponse } from "@/lib/actions";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
@@ -31,13 +32,22 @@ export function SubscriptionForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
-      const result: SubscriptionResponse = await subscribeToNewsletter(values.email);
-      if (result.success) {
-        router.push("/thank-you");
-      } else {
-        if (result.errors?.email) {
-          form.setError("email", { type: "manual", message: result.errors.email[0] });
+      try {
+        if (!db) {
+          form.setError("email", { type: "manual", message: "Firebase 설정이 완료되지 않았습니다." });
+          return;
         }
+
+        const subscriptionsRef = collection(db, 'subscriptions');
+        await addDoc(subscriptionsRef, {
+          email: values.email,
+          subscribedAt: serverTimestamp(),
+        });
+
+        router.push("/thank-you");
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        form.setError("email", { type: "manual", message: "오류가 발생했습니다. 다시 시도해주세요." });
       }
     });
   }

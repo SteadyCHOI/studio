@@ -1,5 +1,3 @@
-'use server';
-
 /**
  * @fileOverview AI opponent recommendation flow.
  *
