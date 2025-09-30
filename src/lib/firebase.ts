@@ -10,8 +10,23 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const db = getFirestore(app);
+// Firebase 설정값 검증
+const isFirebaseConfigValid = () => {
+  return firebaseConfig.apiKey &&
+         firebaseConfig.authDomain &&
+         firebaseConfig.projectId &&
+         firebaseConfig.storageBucket &&
+         firebaseConfig.messagingSenderId &&
+         firebaseConfig.appId;
+};
 
-export { db };
+// Initialize Firebase only if config is valid
+let app: any = null;
+let db: any = null;
+
+if (isFirebaseConfigValid()) {
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  db = getFirestore(app);
+}
+
+export { db, isFirebaseConfigValid };

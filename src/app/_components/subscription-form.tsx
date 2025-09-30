@@ -14,7 +14,7 @@ import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "유효한 이메일 주소를 입력해주세요.",
   }),
 });
 
@@ -45,9 +45,9 @@ export function SubscriptionForm() {
   return (
     <section id="subscribe" className="py-12 md:py-20 bg-card rounded-lg shadow-xl">
       <div className="container mx-auto text-center px-4">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground">Get Notified on Launch</h2>
+        <h2 className="text-3xl font-bold tracking-tight text-foreground">출시 알림 받기</h2>
         <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-          Sign up to receive an email notification when Yinsh is available on mobile. No spam, we promise.
+          Yinsh가 모바일에서 출시될 때 이메일 알림을 받으려면 가입하세요. 스팸은 보내지 않을 것을 약속드립니다.
         </p>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="mt-8 max-w-md mx-auto flex flex-col sm:flex-row gap-4">
@@ -64,7 +64,7 @@ export function SubscriptionForm() {
               )}
             />
             <Button type="submit" disabled={isPending} className="h-12 text-base">
-              {isPending ? <Loader2 className="animate-spin" /> : 'Subscribe'}
+              {isPending ? <Loader2 className="animate-spin" /> : '구독하기'}
             </Button>
           </form>
         </Form>
